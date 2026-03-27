@@ -58,7 +58,20 @@ export default function Footer() {
                 </a>
               </div>
               <div>Bailey, CO — 285 Corridor</div>
-              <div style={{ color: "#b7b6b6", opacity: 0.7 }}>CO Electrical License #XXXXX</div>
+              <div style={{ color: "#b7b6b6", opacity: 0.7 }}>CO Electrical License #EC.0101760</div>
+              <div>
+                <a
+                  href="https://www.facebook.com/people/Tri-Peaks-Electric-Service-Inc/61566820028808/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "#b7b6b6" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#eea603")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "#b7b6b6")}
+                  className="text-sm"
+                >
+                  Facebook
+                </a>
+              </div>
               <div className="pt-1">
                 <a
                   href="tel:7204365746"

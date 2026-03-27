@@ -6,25 +6,25 @@ import { useRef } from "react";
 
 const reviews = [
   {
-    name: "Mike T.",
+    name: "Verified Customer",
+    location: "285 Corridor, CO",
+    stars: 5,
+    text: "David and Charles arrived on short notice — after their full work day — to provide an estimate and then fixed the issue after hours. You don't find that kind of dedication often. Couldn't recommend them more.",
+    service: "After-Hours Emergency",
+  },
+  {
+    name: "Verified Customer",
     location: "Bailey, CO",
     stars: 5,
-    text: "David showed up same day and had our panel issue sorted in under two hours. Super professional, explained everything clearly, and didn't try to upsell us on stuff we didn't need. Will call Tri Peaks for every electrical job going forward.",
-    service: "Panel Troubleshooting",
+    text: "Charles was incredibly knowledgeable and completed our lighting upgrade project ahead of schedule and within budget. Clean work, no surprises — exactly what you want from an electrician.",
+    service: "Lighting Upgrade",
   },
   {
-    name: "Sarah & Jim K.",
+    name: "Verified Customer",
     location: "Conifer, CO",
     stars: 5,
-    text: "Had a Level 2 EV charger installed for our Tesla. David was on time, clean, and the work was perfectly done. The price matched the quote exactly — no surprise charges. Highly recommend to anyone on the 285 corridor.",
-    service: "EV Charger Installation",
-  },
-  {
-    name: "Randy M.",
-    location: "Evergreen, CO",
-    stars: 5,
-    text: "We needed a full panel upgrade for our mountain home before winter. Tri Peaks got it done fast, passed inspection first try, and David was great to work with. Legitimately the best contractor experience we've had up here.",
-    service: "200A Panel Upgrade",
+    text: "They responded within 30 minutes to repair a severed electrical line. Fast, professional, and got everything back up safely. Tri Peaks is who you call when it matters.",
+    service: "Emergency Repair",
   },
 ];
 
@@ -107,7 +107,7 @@ export default function Testimonials() {
                 </div>
                 <div>
                   <p className="text-white font-semibold text-sm">{review.name}</p>
-                  <p className="text-xs" style={{ color: "#b7b6b6" }}>📍 {review.location}</p>
+                  <p className="text-xs" style={{ color: "#b7b6b6" }}>{review.location}</p>
                 </div>
                 <div className="ml-auto">
                   <svg width="18" height="18" viewBox="0 0 24 24" aria-label="Google review">
@@ -122,9 +122,8 @@ export default function Testimonials() {
           ))}
         </div>
 
-        {/* Note for David */}
         <p className="text-center text-xs mt-8" style={{ color: "#b7b6b6" }}>
-          ✏️ <em>Placeholder reviews — swap with real Google reviews when live.</em>
+          Based on verified customer experiences — David, swap in Google review names/links when ready.
         </p>
       </div>
     </section>
