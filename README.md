@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tri Peaks Electric Service — Website
 
-## Getting Started
+Production-ready lead-optimized homepage for Tri Peaks Electric Service Inc.
 
-First, run the development server:
+**Stack:** Next.js 16 · React 19 · Tailwind CSS v4 · TypeScript · Framer Motion · Resend
+
+---
+
+## Setup
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment Variables
 
-## Learn More
+Create `.env.local` (already exists as a placeholder):
 
-To learn more about Next.js, take a look at the following resources:
+```env
+RESEND_API_KEY=re_your_api_key_here
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Getting your Resend API key
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Sign up at [resend.com](https://resend.com)
+2. Add and verify your domain: `tpeservice.net`
+3. Create an API key under **API Keys**
+4. Paste it into `.env.local`
 
-## Deploy on Vercel
+Until the API key is configured, the contact form will return an error — the rest of the site works fine.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment (Vercel)
+
+```bash
+vercel deploy
+```
+
+Add `RESEND_API_KEY` in the Vercel dashboard under **Settings → Environment Variables**.
+
+---
+
+## Project Structure
+
+```
+app/
+  layout.tsx          — metadata, fonts, globals
+  page.tsx            — homepage assembly + JSON-LD schema
+  globals.css         — Tailwind v4 theme (brand colors)
+  api/
+    contact/
+      route.ts        — POST handler → sends email via Resend
+
+components/
+  Nav.tsx             — sticky nav + mobile bottom call bar
+  Hero.tsx            — full-width hero + trust bar
+  Services.tsx        — 7 service cards with Yeti images
+  Offers.tsx          — 4 discount offer cards → PDF links
+  Specials.tsx        — 6 pricing special cards → PDF links
+  Gallery.tsx         — photo grid with lightbox
+  WhyUs.tsx           — trust points + pull quote
+  ContactForm.tsx     — react-hook-form + zod + API submit
+  ServiceArea.tsx     — location pills + mountain SVG
+  CTABanner.tsx       — bottom CTA section
+  Footer.tsx          — logo, contact, links, copyright
+
+public/
+  assets/             — images (Yeti art, logos, job photos)
+  offers/             — discount offer PDFs
+  specials/           — pricing special PDFs
+```
+
+---
+
+## Business Info
+
+- **Owner:** David Martinez
+- **Phone:** (720) 436-5746
+- **Email:** David@TPEService.net
+- **Location:** Bailey, CO
+- **Service area:** Conifer, Evergreen, Indian Hills, Pine, Morrison, Fairplay, Jefferson County, Park County, West Metro Denver, 285 Corridor
