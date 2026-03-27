@@ -42,12 +42,11 @@ export default function Gallery() {
             Real Work. Real Results.
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: "#b7b6b6" }}>
-            Every job done right — from mountain cabins to commercial properties.
-            See what Tri Peaks Electric delivers across the 285 Corridor.
+            Every job done right — from mountain cabins to commercial properties across the 285 Corridor.
           </p>
         </div>
 
-        <div ref={ref} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div ref={ref} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {photos.map((photo, i) => (
             <motion.div
               key={photo.src}
@@ -55,10 +54,8 @@ export default function Gallery() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.12, ease: "easeOut" }}
               className="group relative rounded-2xl overflow-hidden cursor-pointer"
-              style={{ border: "1px solid rgba(238,166,3,0.2)" }}
+              style={{ border: "1px solid rgba(238,166,3,0.15)" }}
               onClick={() => setLightbox(i)}
-              onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(238,166,3,0.6)")}
-              onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(238,166,3,0.2)")}
             >
               <div className="aspect-[4/3] relative" style={{ background: "#0a3444" }}>
                 <Image
@@ -71,24 +68,24 @@ export default function Gallery() {
                 />
                 <div
                   className="absolute inset-0"
-                  style={{ background: "linear-gradient(to top, rgba(8,41,51,0.8), transparent)" }}
+                  style={{ background: "linear-gradient(to top, rgba(8,41,51,0.85), transparent 50%)" }}
                 />
-                {/* Zoom icon */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                {/* View icon */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div
                     className="w-12 h-12 rounded-full flex items-center justify-center"
-                    style={{ background: "rgba(238,166,3,0.9)" }}
+                    style={{ background: "rgba(238,166,3,0.92)" }}
                   >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#082933">
-                      <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="#082933" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#082933" strokeWidth="2.5" strokeLinecap="round">
+                      <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
                     </svg>
                   </div>
                 </div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-5">
                 <p className="text-white font-bold text-base">{photo.caption}</p>
-                <p className="text-sm flex items-center gap-1" style={{ color: "#eea603" }}>
-                  📍 {photo.location}
+                <p className="text-sm" style={{ color: "#eea603" }}>
+                  {photo.location}
                 </p>
               </div>
             </motion.div>
@@ -98,7 +95,7 @@ export default function Gallery() {
         <div className="text-center mt-10">
           <a
             href="tel:7204365746"
-            className="border-2 font-bold px-8 py-3 rounded-xl inline-block transition-all duration-200 hover:-translate-y-0.5"
+            className="border-2 font-bold px-8 py-3 rounded-full inline-block transition-all duration-200 hover:-translate-y-0.5"
             style={{ borderColor: "#eea603", color: "#eea603" }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = "#eea603";
@@ -109,7 +106,7 @@ export default function Gallery() {
               e.currentTarget.style.color = "#eea603";
             }}
           >
-            📞 Call to Discuss Your Project
+            Call to Discuss Your Project
           </a>
         </div>
       </div>
@@ -118,18 +115,20 @@ export default function Gallery() {
       {lightbox !== null && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center p-4"
-          style={{ background: "rgba(0,0,0,0.92)" }}
+          style={{ background: "rgba(0,0,0,0.93)" }}
           onClick={() => setLightbox(null)}
         >
           <button
-            className="absolute top-4 right-4 text-white text-3xl font-bold hover:opacity-70 transition-opacity z-10"
+            className="absolute top-5 right-5 text-white hover:opacity-70 transition-opacity z-10"
             onClick={() => setLightbox(null)}
             aria-label="Close lightbox"
           >
-            ✕
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
           </button>
           <div
-            className="relative max-w-4xl w-full max-h-[85vh] rounded-2xl overflow-hidden"
+            className="relative max-w-4xl w-full rounded-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
@@ -142,29 +141,28 @@ export default function Gallery() {
             />
             <div
               className="absolute bottom-0 left-0 right-0 p-4 text-center"
-              style={{ background: "rgba(8,41,51,0.9)" }}
+              style={{ background: "rgba(8,41,51,0.92)" }}
             >
               <p className="text-white font-bold">{photos[lightbox].caption}</p>
-              <p className="text-sm" style={{ color: "#eea603" }}>📍 {photos[lightbox].location}</p>
+              <p className="text-sm" style={{ color: "#eea603" }}>{photos[lightbox].location}</p>
             </div>
           </div>
-          {/* Prev / Next */}
           {lightbox > 0 && (
             <button
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold"
-              style={{ background: "rgba(238,166,3,0.8)" }}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl"
+              style={{ background: "rgba(238,166,3,0.85)" }}
               onClick={(e) => { e.stopPropagation(); setLightbox(lightbox - 1); }}
-              aria-label="Previous photo"
+              aria-label="Previous"
             >
               ‹
             </button>
           )}
           {lightbox < photos.length - 1 && (
             <button
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold"
-              style={{ background: "rgba(238,166,3,0.8)" }}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl"
+              style={{ background: "rgba(238,166,3,0.85)" }}
               onClick={(e) => { e.stopPropagation(); setLightbox(lightbox + 1); }}
-              aria-label="Next photo"
+              aria-label="Next"
             >
               ›
             </button>

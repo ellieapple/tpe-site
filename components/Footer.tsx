@@ -57,7 +57,8 @@ export default function Footer() {
                   David@TPEService.net
                 </a>
               </div>
-              <div>📍 Bailey, CO — 285 Corridor</div>
+              <div>Bailey, CO — 285 Corridor</div>
+              <div style={{ color: "#b7b6b6", opacity: 0.7 }}>CO Electrical License #XXXXX</div>
               <div className="pt-1">
                 <a
                   href="tel:7204365746"

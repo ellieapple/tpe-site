@@ -1,10 +1,13 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import TrustBar from "@/components/TrustBar";
 import Services from "@/components/Services";
 import Offers from "@/components/Offers";
 import Specials from "@/components/Specials";
 import Gallery from "@/components/Gallery";
+import Testimonials from "@/components/Testimonials";
 import WhyUs from "@/components/WhyUs";
+import HowItWorks from "@/components/HowItWorks";
 import ContactForm from "@/components/ContactForm";
 import ServiceArea from "@/components/ServiceArea";
 import CTABanner from "@/components/CTABanner";
@@ -86,11 +89,14 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <TrustBar />
         <Services />
         <Offers />
         <Specials />
         <Gallery />
+        <Testimonials />
         <WhyUs />
+        <HowItWorks />
         <ContactForm />
         <ServiceArea />
         <CTABanner />
