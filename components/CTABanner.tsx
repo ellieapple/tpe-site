@@ -33,14 +33,14 @@ export default function CTABanner() {
         <div className="flex flex-col sm:flex-row gap-5 justify-center mb-12">
           <a
             href="tel:7204365746"
-            className="font-extrabold text-xl px-10 py-5 rounded-xl transition-all duration-200 shadow-2xl hover:-translate-y-1"
+            className="font-extrabold text-xl px-10 py-5 rounded-full transition-all duration-200 shadow-2xl hover:-translate-y-1"
             style={{ background: "#eea603", color: "#082933" }}
           >
-            📞 Call (720) 436-5746
+            Call (720) 436-5746
           </a>
           <a
             href="#contact"
-            className="border-2 font-extrabold text-xl px-10 py-5 rounded-xl transition-all duration-200 hover:-translate-y-1"
+            className="border-2 font-extrabold text-xl px-10 py-5 rounded-full transition-all duration-200 hover:-translate-y-1"
             style={{ borderColor: "#eea603", color: "#eea603" }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = "#eea603";
